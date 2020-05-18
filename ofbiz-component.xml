@@ -18,7 +18,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<ofbiz-component name="bi" enabled="true"
+<ofbiz-component name="odwh" enabled="true"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
     <resource-loader name="main" type="component"/>
@@ -41,12 +41,12 @@ under the License.
 
     <service-resource type="model" loader="main" location="servicedef/services.xml"/>
 
-    <webapp name="bi"
-        title="Business Intelligence"
+    <webapp name="odwh"
+        title="DWH 4 BI"
         menu-name="secondary"
         server="default-server"
         location="webapp/bi"
         base-permission="OFBTOOLS,BI"
-        mount-point="/bi"
+        mount-point="/odwh"
         app-bar-display="true"/>
 </ofbiz-component>
