@@ -23,7 +23,7 @@ under the License.
     <screen name="main">
         <section>
             <condition>
-                <if-has-permission permission="BI" action="_VIEW"/>
+                <if-has-permission permission="odwh" action="_VIEW"/>
             </condition>
             <actions>
                 <set field="titleProperty" value="BiMainPage"/>
@@ -33,7 +33,7 @@ under the License.
                 <decorator-screen name="odwhCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet>
-                            <content content-id="BI_MAIN"/>
+                            <content content-id="odwh_MAIN"/>
                         </screenlet>
                     </decorator-section>
                 </decorator-screen>
@@ -45,10 +45,10 @@ under the License.
             <actions>
                 <set field="titleProperty" value="BiInitialiseDwh"/>
                 <set field="headerItem" value="reportbuilder"/>
-                <property-to-field resource="bi" property="dwh.initialised" field="dwhInitialised" no-locale="true"/>
-                <property-to-field resource="bi" property="dwh.fromDate" field="fromDate" no-locale="true"/>
-                <property-to-field resource="bi" property="dwh.futureIncrement" field="futureIncrement" no-locale="true"/>
-                <property-to-field resource="bi" property="dwh.useTimeUomId " field="useTimeUomId" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.initialised" field="dwhInitialised" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.fromDate" field="fromDate" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.futureIncrement" field="futureIncrement" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.useTimeUomId " field="useTimeUomId" no-locale="true"/>
             </actions>
             <widgets>
                 <decorator-screen name="odwhCommonDecorator" location="${parameters.mainDecoratorLocation}">
@@ -66,10 +66,10 @@ under the License.
             <actions>
                 <set field="titleProperty" value="BiUpdateDwh"/>
                 <set field="headerItem" value="reportbuilder"/>
-                <property-to-field resource="bi" property="dwh.initialised" field="dwhInitialised" no-locale="true"/>
-                <property-to-field resource="bi" property="dwh.fromDate" field="fromDate" no-locale="true"/>
-                <property-to-field resource="bi" property="dwh.futureIncrement" field="futureIncrement" no-locale="true"/>
-                <property-to-field resource="bi" property="dwh.useTimeUomId " field="useTimeUomId" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.initialised" field="dwhInitialised" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.fromDate" field="fromDate" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.futureIncrement" field="futureIncrement" no-locale="true"/>
+                <property-to-field resource="odwh" property="dwh.useTimeUomId " field="useTimeUomId" no-locale="true"/>
             </actions>
             <widgets>
                 <decorator-screen name="odwhCommonDecorator" location="${parameters.mainDecoratorLocation}">

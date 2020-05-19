@@ -18,6 +18,18 @@ specific language governing permissions and limitations
 under the License.
 -->
 <entity-engine-xml>
+    <SystemProperty systemResourceId="odwh" systemPropertyId="dwh.initialised" systemPropertyValue="false"
+        description="Whether the dwh has been initalised with past data. Choices are: 'true' or 'false'"/>
+    <SystemProperty systemResourceId="odwh" systemPropertyId="dwh.fromDate" systemPropertyValue="2000-01-01"
+        description="The 'standard' start date for the initialisation of the DWH"/>
+    <SystemProperty systemResourceId="odwh" systemPropertyId="dwh.useTimeUomId" systemPropertyValue="TF_yr"
+        description="The Time Frequecy UomId for future increments. To determine future dates for the Date Dimension"/>
+    <SystemProperty systemResourceId="odwh" systemPropertyId="dwh.futureIncrement" systemPropertyValue="1"
+        description="How many units for the Time Frequecy UomId. To determine future dates for the Date Dimension"/>
+    <SystemProperty systemResourceId="odwh" systemPropertyId="dwh.updateMode" systemPropertyValue="TYPE1"
+        description="Update mode for DWH records. Per the DWT book."/>
+    <SystemProperty systemResourceId="odwh" systemPropertyId="dwh.updateSlot" systemPropertyValue="HOUR_02"
+        description="When the scheduled update should be triggered. Based on temporal expression."/>
     <AssetDimension dimensionId="0" fixedAssetId="_NF_"
         fixedAssetName="Asset Not Found." />
     <AssetDimension dimensionId="1" fixedAssetId="_NA_"
@@ -2969,19 +2981,19 @@ under the License.
     <TimeDimension dimensionId="0000" timeValue="00:00:00"
         hr="0" mn="0" />
 
-    <WebSite webSiteId="BI" siteName="OFBIZ Business Intelligence" />
-    <Content contentId="BI_CONTENT" contentTypeId="WEB_SITE_PUB_PT"
-        contentName="Bi Content Root" description="BI Content" />
-    <WebSiteContent webSiteId="BI" contentId="BI_CONTENT"
-        webSiteContentTypeId="PUBLISH_POINT" siteName="OFBiz Business Intelligence"
+    <WebSite webSiteId="odwh" siteName="ORRTIZ Data WareHouse" />
+    <Content contentId="odwh_CONTENT" contentTypeId="WEB_SITE_PUB_PT"
+        contentName="odwh Content Root" description="odwh Content" />
+    <WebSiteContent webSiteId="odwh" contentId="odwh_CONTENT"
+        webSiteContentTypeId="PUBLISH_POINT" siteName="ORRTIZ Data WareHouse"
         fromDate="2001-01-01 00:00:00" />
-    <DataResource dataResourceId="BI_MAIN" dataResourceTypeId="ELECTRONIC_TEXT"
+    <DataResource dataResourceId="odwh_MAIN" dataResourceTypeId="ELECTRONIC_TEXT"
         mimeTypeId="text/html" localeString="en_US" isPublic="Y"
-        dataResourceName="BI Main" />
-    <ElectronicText dataResourceId="BI_MAIN">
+        dataResourceName="odwh Main" />
+    <ElectronicText dataResourceId="odwh_MAIN">
         <textData><![CDATA[
-            <div class="h1">OFBiz Data Warehousing</div>
-            <div>This component is intended to facilitate the Business Intelligence regarding your OFBiz implementation</div>
+            <div class="h1">ORRTIZ Data Warehousing</div>
+            <div>This component is intended to facilitate Business Intelligence regarding your OFBiz implementation</div>
             <p>
             A set entities for business intelligence analysis in a separate (OLAP, or DW) database, accessible, in the same way 
             as the main OFBiz Transaction Database, via the delegator.
@@ -3036,7 +3048,7 @@ under the License.
             <br/>
             <div class="h2">Initialisation</div>
             <p>
-            You can initialize the OFBiz Data WareHouse by clicking on the button below: 
+            You can initialize the ORRTIZ Data WareHouse by clicking on the button below: 
             the dimension and fact tables will be populated automatically.
             </p>
             <p>Then you can run the analysis using the report builder menu. 
@@ -3046,11 +3058,11 @@ under the License.
             </p>
         ]]></textData>
     </ElectronicText>
-    <Content contentId="BI_MAIN" contentTypeId="DOCUMENT"
-        ownerContentId="BI_CONTENT" dataResourceId="BI_MAIN" contentName="BI Main"
-        description="BI Main Page" mimeTypeId="text/html" localeString="en_US"
+    <Content contentId="odwh_MAIN" contentTypeId="DOCUMENT"
+        ownerContentId="odwh_CONTENT" dataResourceId="odwh_MAIN" contentName="odwh Main"
+        description="odwh Main Page" mimeTypeId="text/html" localeString="en_US"
         createdDate="2001-05-13 12:00:00.000"/>
-    <ContentAssoc contentId="BI_CONTENT" contentIdTo="BI_MAIN"
+    <ContentAssoc contentId="odwh_CONTENT" contentIdTo="odwh_MAIN"
         mapKey="introduction" contentAssocTypeId="SUB_CONTENT" fromDate="2001-01-01 00:00:00"
         createdDate="2001-05-13 12:00:00.000" />
 

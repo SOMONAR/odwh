@@ -41,12 +41,12 @@ GenericValue dwhInitialised;
 
 def initialiseDwh() {
     // Updating BI system properties
-    futureIncrementProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.futureIncrement ').queryOne()
+    futureIncrementProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.futureIncrement ').queryOne()
     if(futureIncrement != futureIncrementProp.systemPropertyValue) {
         futureIncrementProp.systemPropertyValue = futureIncrement
         futureIncrementProp.store()
     }
-    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.useTimeUomId ').queryOne()
+    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.useTimeUomId ').queryOne()
     if(useTimeUomId != useTimeUomIdProp) {
         useTimeUomIdProp.systemPropertyValue = useTimeUomId
         useTimeUomIdProp.store()
@@ -73,7 +73,7 @@ def initialiseDwh() {
     // set update schedule
     updateJobs = from("JobSandbox").where("serviceName", "updateDwh").queryList()
     if(!updateJobs) {
-        dwhUpdateSlotProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.updateSlot').queryOne()
+        dwhUpdateSlotProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.updateSlot').queryOne()
         dwhUpdateSlot = dwhUpdateSlotProp.systemPropertyValue
         calculatedHour = dwhUpdateSlot.substring(5)
         // calculate inital runtime
@@ -95,7 +95,7 @@ def initialiseDwh() {
     }
     
     // finalise dwh initialisation
-    dwhInitialisedProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.initialised').queryOne()
+    dwhInitialisedProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.initialised').queryOne()
     if("false".equals(dwhInitialisedProp.systemPropertyValue)) {
         dwhInitialisedProp.systemPropertyValue = "true"
         dwhInitialisedProp.store()
@@ -105,8 +105,8 @@ def initialiseDwh() {
 def updateDwh() {
     reader = delegator.getModelReader()
     entities = new TreeSet(reader.getEntityNames())
-    dwhInitialisedProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.initialised').queryOne()
-    dwhUpdateModeProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.updateMode').queryOne()
+    dwhInitialisedProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.initialised').queryOne()
+    dwhUpdateModeProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.updateMode').queryOne()
     parameters.updateMode = dwhUpdateModeProp.systemPropertyValue
     // get nowTimestamp
     Calendar calendar = Calendar.getInstance();
@@ -123,9 +123,9 @@ def updateDwh() {
     // Prepare for updating dimension and fact tables
 
     // prepare future date for date dimension
-    futureIncrementProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.futureIncrement ').queryOne()
+    futureIncrementProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.futureIncrement ').queryOne()
     futureIncrement = futureIncrementProp.systemPropertyValue.toInteger()
-    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.useTimeUomId ').queryOne()
+    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.useTimeUomId ').queryOne()
     useTimeUomId = useTimeUomIdProp.systemPropertyValue
     switch (useTimeUomId){
         case "TF_mon":

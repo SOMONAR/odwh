@@ -18,5 +18,9 @@ specific language governing permissions and limitations
 under the License.
 -->
 <entity-engine-xml>
+    <SecurityPermission description="All Data WareHouse operations." permissionId="odwh_ADMIN"/>
+    <SecurityPermission description="Data WareHouse View permission." permissionId="odwh_VIEW"/>
 
+    <SecurityGroupPermission fromDate="2001-05-13 12:00:00.0" groupId="SUPER" permissionId="odwh_ADMIN"/>
+    <SecurityGroupPermission fromDate="2001-05-13 12:00:00.0" groupId="FULLADMIN" permissionId="odwh_ADMIN"/>
 </entity-engine-xml>

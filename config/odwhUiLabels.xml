@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="odwhApplication">
+        <value xml:lang="en">ORRTIZ Data WareHouse</value>
+    </property>
+    <property key="odwhCompanyName">
+        <value xml:lang="en">ORRTIZ: Data WareHouse</value>
+    </property>
+    <property key="odhwCompanySubtitle">
+        <value xml:lang="en">A plugin for the OFBiz solution</value>
+    </property>
+    <property key="CurrentStatus">
+        <value xml:lang="en">Current Status</value>
+        <value xml:lang="zh-TW">目前狀態</value>
+    </property>
+    <property key="FieldDescription">
+        <value xml:lang="en">Field Description</value>
+    </property>
+    <property key="FieldName">
+    </property>
+    <property key="IntegratedFramework">
+        <value xml:lang="en">Business Intelligence Integrated Framework</value>
+    </property>
+    <property key="MainPage">
+        <value xml:lang="en">Main Page</value>
+    </property>
+    <property key="NaturalKeyWithourDimension">
+        <value xml:lang="en">The natural key: ${naturalKeyFields} is empty in value: ${dimensionValue}</value>
+    </property>
+    <property key="InitialiseDwh">
+        <value xml:lang="en">Initialise DataWarehouse</value>
+    </property>
+    <property key="RenderTheReport">
+        <value xml:lang="en">Render the Report</value>
+    </property>
+    <property key="ReportBuilder">
+        <value xml:lang="en">Report Builder</value>
+    </property>
+    <property key="ReportBuilderRenderStarSchemaReport">
+        <value xml:lang="en">Render Star Schema Report</value>
+    </property>
+    <property key="ReportBuilderSelectStarSchema">
+        <value xml:lang="en">Select Star Schema</value>
+    </property>
+    <property key="ReportBuilderSelectStarSchemaFields">
+        <value xml:lang="en">Select Star Schema Fields</value>
+    </property>
+    <property key="ReportBuilderSelectTheStarSchemaReport">
+        <value xml:lang="en">Select the start schema (report)</value>
+    </property>
+    <property key="UpdateModeStillNotSupported">
+        <value xml:lang="en">The update mode: ${updateMode} is still not supported.</value>
+    </property>
+    <property key="UpdateDwh">
+        <value xml:lang="en">Update DataWarehouse</value>
+    </property>
+</resource>
