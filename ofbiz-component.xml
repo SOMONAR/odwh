@@ -42,7 +42,7 @@ under the License.
     <service-resource type="model" loader="main" location="servicedef/services.xml"/>
 
     <webapp name="odwh"
-        title="DWH 4 BI"
+        title="Data Warehouse"
         menu-name="secondary"
         server="default-server"
         location="webapp/bi"
