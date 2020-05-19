@@ -54,7 +54,7 @@ under the License.
                 <decorator-screen name="CommonBiDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${defaultUseTimeUomId}">
-                            <include-form location="component://bi/widget/BiForms.xml" name="PrepareDwhInit"/>
+                            <include-form location="component://odwh/widget/BiForms.xml" name="PrepareDwhInit"/>
                         </screenlet>
                     </decorator-section>
                 </decorator-screen>
@@ -75,7 +75,7 @@ under the License.
                 <decorator-screen name="CommonBiDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet>
-                            <include-form location="component://bi/widget/BiForms.xml" name="PrepareDwhUpdate"/>
+                            <include-form location="component://odwh/widget/BiForms.xml" name="PrepareDwhUpdate"/>
                         </screenlet>
                     </decorator-section>
                 </decorator-screen>
@@ -87,14 +87,14 @@ under the License.
             <actions>
                 <set field="titleProperty" value="BiReportBuilder"/>
                 <set field="headerItem" value="reportbuilder"/>
-                <script location="component://bi/groovyScripts/reportBuilder/GetStarSchemas.groovy"/>
+                <script location="component://odwh/groovyScripts/reportBuilder/GetStarSchemas.groovy"/>
             </actions>
             <widgets>
                 <decorator-screen name="CommonBiDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.BiReportBuilderSelectStarSchema}">
                             <platform-specific>
-                                <html><html-template location="component://bi/template/reportbuilder/SelectStarSchema.ftl"/></html>
+                                <html><html-template location="component://odwh/template/reportbuilder/SelectStarSchema.ftl"/></html>
                             </platform-specific>
                         </screenlet>
                         <container id="fieldSelector"/>
@@ -108,12 +108,12 @@ under the License.
         <section>
             <actions>
                 <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
-                <script location="component://bi/groovyScripts/reportbuilder/GetStarSchemaFields.groovy"/>
+                <script location="component://odwh/groovyScripts/reportbuilder/GetStarSchemaFields.groovy"/>
             </actions>
             <widgets>
                 <screenlet title="${uiLabelMap.Fields}" id="fields" collapsible="true">
                 <platform-specific>
-                    <html><html-template location="component://bi/template/reportbuilder/StarSchemaFields.ftl"/></html>
+                    <html><html-template location="component://odwh/template/reportbuilder/StarSchemaFields.ftl"/></html>
                 </platform-specific>
                 </screenlet>
             </widgets>
@@ -124,12 +124,12 @@ under the License.
             <actions>
                 <set field="titleProperty" value="BiReportBuilderRenderStarSchemaReport"/>
                 <set field="headerItem" value="reportbuilder"/>
-                <script location="component://bi/groovyScripts/reportbuilder/RunStarSchemaQuery.groovy"/>
+                <script location="component://odwh/groovyScripts/reportbuilder/RunStarSchemaQuery.groovy"/>
             </actions>
             <widgets>
                 <screenlet>
                     <platform-specific>
-                        <html><html-template location="component://bi/template/reportbuilder/RenderStarSchemaReport.ftl"/></html>
+                        <html><html-template location="component://odwh/template/reportbuilder/RenderStarSchemaReport.ftl"/></html>
                     </platform-specific>
                 </screenlet>
             </widgets>
