@@ -30,9 +30,11 @@ import org.apache.ofbiz.base.util.UtilDateTime
 import org.apache.ofbiz.entity.condition.EntityCondition
 import org.apache.ofbiz.entity.condition.EntityOperator
 import org.apache.ofbiz.entity.GenericValue
+import org.apache.ofbiz.entity.model.ModelReader
 import org.apache.ofbiz.entity.util.EntityListIterator
 import org.apache.ofbiz.service.ModelService
 import org.apache.ofbiz.service.ServiceUtil
+
 
 GenericValue value = null;
 GenericValue dwhInitialised;
@@ -101,6 +103,8 @@ def initialiseDwh() {
 }
 
 def updateDwh() {
+    reader = delegator.getModelReader()
+    entities = new TreeSet(reader.getEntityNames())
     dwhInitialisedProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.initialised').queryOne()
     dwhUpdateModeProp = from('SystemProperty').where('systemResourceId','bi', 'systemPropertyId','dwh.updateMode').queryOne()
     parameters.updateMode = dwhUpdateModeProp.systemPropertyValue
@@ -208,12 +212,16 @@ def updateDwh() {
     serviceResult = run service: serviceDef, with: inMap
     if (!ServiceUtil.isSuccess(serviceResult)) return error(serviceResult.errorMessage)
 
-    // update Facility Dimension
-    parameters.dimensionEntityName = "PosTerminalDimension"
-    Debug.logInfo("In updateDwh, applying " + serviceDef + " for dimension " + parameters.dimensionEntityName, "DwhServices")
-    inMap = dispatcher.getDispatchContext().makeValidContext(serviceDef, ModelService.IN_PARAM, parameters)
-    serviceResult = run service: serviceDef, with: inMap
-    if (!ServiceUtil.isSuccess(serviceResult)) return error(serviceResult.errorMessage)
+    // update PosTerminal Dimension
+    existingEntity = null
+    exisitingEntity = entities.contains("PosTerminal")
+    if (exisitingEntity) {
+        parameters.dimensionEntityName = "PosTerminalDimension"
+        Debug.logInfo("In updateDwh, applying " + serviceDef + " for dimension " + parameters.dimensionEntityName, "DwhServices")
+        inMap = dispatcher.getDispatchContext().makeValidContext(serviceDef, ModelService.IN_PARAM, parameters)
+        serviceResult = run service: serviceDef, with: inMap
+        if (!ServiceUtil.isSuccess(serviceResult)) return error(serviceResult.errorMessage)
+    }
 
     // update Project Dimension
     parameters.dimensionEntityName = "ProjectDimension"
