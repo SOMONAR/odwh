@@ -3001,14 +3001,16 @@ under the License.
             <p>
             The new OLAP database, will contain all the entities necessary to do DataWarehouse analysis: dimensions, facts and star schemas (that are view-entities). 
             The dimensions, facts and star schemas are defined according to best practices for datawarehouses and best practices for OFBiz: 
-            they are defined as standard entities using the xml entity defs; clear and consistent naming conventions are used and they are documented by meta data descriptions (in the entity def). 
+            they are defined as standard entities using the xml entity defs; clear and consistent naming conventions are used and 
+            they are documented by meta data descriptions (in the entity def). 
             The best practices for datawarehouses are mainly taken from the book "The Data Warehouse Toolkit - Second Edition" by Ralph Kimball. 
             The data for dimensions and facts are maintained and kept up to date using standard OFBiz services and ECA rules.
             </p>
             <br/>
             <div class="h2">Current Status</div>
             <p>
-            The main low level services to post data to the datawarehouse, to map the operational keys with the datawarehouse ones, and to manage history of data changes are already implemented; 
+            The main low level services to post data to the datawarehouse, to map the operational keys with the datawarehouse ones, 
+            and to manage history of data changes are already implemented; 
             they will be improved as the datawarehouse will grow (e.g. performance enhancements). 
             The following dimensions (and associateddata services) are currently defined: 
             </p>
@@ -3048,22 +3050,31 @@ under the License.
             <br/>
             <div class="h2">Initialisation</div>
             <p>
-            You can initialize the ORRTIZ Data WareHouse by clicking on the button below: 
+            You can initialize the ORRTIZ Data WareHouse by clicking on the 'Initialise DataWarehouse' button in the menu above: 
             the dimension and fact tables will be populated automatically.
             </p>
+            <br/>
+            <div class="h2">Analysis of data in the DWH</div>
             <p>Then you can run the analysis using the report builder menu. 
             The report builder is a very simple tool that allows you to run the analysis on all the star schemas defined in the system.
             Just select the fields (colums) using the checkboxes you want to see in the report and a simple report will be shown.
             According to the columns selected data will be aggregated (drill up/down).
+            </p>
+            <br/>
+            <div class="h2">Updating the Data Warehouse</div>
+            <p>
+            You can update the ORRTIZ Data WareHouse (after the initialisation) by clicking on the 'Update DataWarehouse' button 
+            in the menu above: 
+            the dimension and fact tables will be updated automatically.
             </p>
         ]]></textData>
     </ElectronicText>
     <Content contentId="odwh_MAIN" contentTypeId="DOCUMENT"
         ownerContentId="odwh_CONTENT" dataResourceId="odwh_MAIN" contentName="odwh Main"
         description="odwh Main Page" mimeTypeId="text/html" localeString="en_US"
-        createdDate="2001-05-13 12:00:00.000"/>
+        createdDate="2001-01-01 00:00:00"/>
     <ContentAssoc contentId="odwh_CONTENT" contentIdTo="odwh_MAIN"
         mapKey="introduction" contentAssocTypeId="SUB_CONTENT" fromDate="2001-01-01 00:00:00"
-        createdDate="2001-05-13 12:00:00.000" />
+        createdDate="2001-01-01 00:00:00" />
 
 </entity-engine-xml>
