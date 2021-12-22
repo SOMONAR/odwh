@@ -33,7 +33,7 @@ under the License.
                 <decorator-screen name="odwhCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet>
-                            <content content-id="BI_MAIN"/>
+                            <content content-id="odwh_MAIN"/>
                         </screenlet>
                     </decorator-section>
                 </decorator-screen>
