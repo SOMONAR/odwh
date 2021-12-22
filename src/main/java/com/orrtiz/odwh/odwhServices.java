@@ -16,7 +16,7 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 */
-package org.apache.ofbiz.bi.util;
+package com.orrtiz.odwh;
 
 import java.lang.Object;
 import java.lang.String;
@@ -39,9 +39,9 @@ import org.apache.ofbiz.entity.util.EntityQuery;
 import org.apache.ofbiz.service.DispatchContext;
 import org.apache.ofbiz.service.ServiceUtil;
 
-public class DimensionServices {
+public class odwhServices {
 
-    public static final String MODULE = DimensionServices.class.getName();
+    public static final String MODULE = odwhServices.class.getName();
     public static final String resource = "odwhUiLabels";
 
     public static Map<String, Object> getDimensionIdFromNaturalKey(DispatchContext ctx, Map<String, ? extends Object> context) {

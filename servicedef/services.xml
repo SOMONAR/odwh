@@ -35,7 +35,7 @@ under the License.
         <attribute name="thruDate" type="Timestamp" mode="IN" optional="true"/>
     </service>
     <service name="getDimensionIdFromNaturalKey" engine="java"
-        location="org.apache.ofbiz.bi.util.DimensionServices" invoke="getDimensionIdFromNaturalKey" auth="true">
+        location="com.orrtiz.odwh.odwhServices" invoke="getDimensionIdFromNaturalKey" auth="true">
         <description>Generic service to get the dimensionId for a natural key.</description>
         <attribute name="dimensionEntityName" type="String" mode="IN" optional="false"/>
         <attribute name="naturalKeyFields" type="Map" mode="IN" optional="false">
@@ -46,21 +46,21 @@ under the License.
 
     <!-- Dimensions -->
     <service name="storeGenericDimension" engine="java"
-        location="org.apache.ofbiz.bi.util.DimensionServices" invoke="storeGenericDimension" auth="true">
+        location="com.orrtiz.odwh.odwhServices" invoke="storeGenericDimension" auth="true">
         <description>Generic service to load data into a dimension entity (olap entity).</description>
         <attribute name="dimensionValue" type="GenericEntity" mode="IN" optional="false"/>
         <attribute name="naturalKeyFields" type="List" mode="IN" optional="false"/> <!-- the names of the fields that compose the natural key of the dimension -->
         <attribute name="updateMode" type="String" mode="IN" optional="false"/> <!-- TYPE1, TYPE2, TYPE3 -->
     </service>
     <service name="storeOfbizDimension" engine="java"
-        location="org.apache.ofbiz.bi.util.DimensionServices" invoke="storeOfbizDimension" auth="true">
+        location="com.orrtiz.odwh.odwhServices" invoke="storeOfbizDimension" auth="true">
         <description>Generic service to load data into a dimension entity (olap entity).</description>
         <attribute name="dimensionValue" type="GenericEntity" mode="IN" optional="false"/>
         <attribute name="naturalKeyFields" type="List" mode="IN" optional="false"/> <!-- the names of the fields that compose the natural key of the dimension -->
         <attribute name="updateMode" type="String" mode="IN" optional="false"/> <!-- TYPE1, TYPE2, TYPE3 -->
     </service>
     <service name="updateDateDimension" engine="java" transaction-timeout="300"
-        location="org.apache.ofbiz.bi.util.DimensionServices" invoke="updateDateDimension" auth="true">
+        location="com.orrtiz.odwh.odwhServices" invoke="updateDateDimension" auth="true">
         <description>Load records in the DateDimension entity using the update strategy of 'type 1': overwrite the values of the attributes</description>
         <attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
         <attribute name="thruDate" type="Timestamp" mode="IN" optional="false"/>
