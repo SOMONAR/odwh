@@ -30,12 +30,9 @@
     </property>
     <property key="CurrentStatus">
         <value xml:lang="en">Current Status</value>
-        <value xml:lang="zh-TW">目前狀態</value>
     </property>
     <property key="FieldDescription">
         <value xml:lang="en">Field Description</value>
-    </property>
-    <property key="FieldName">
     </property>
     <property key="IntegratedFramework">
         <value xml:lang="en">Business Intelligence Integrated Framework</value>

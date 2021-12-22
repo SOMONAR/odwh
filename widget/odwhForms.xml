@@ -33,11 +33,11 @@ under the License.
         <field name="futureIncrement" position="2">
             <text/>
         </field><field name="dummy99" title=" "><display/></field>
-        <field name="search" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submit" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
     </form>
     <form name="PrepareDwhUpdate" type="single" target="updateDwh">
         <field name="fromDate" title="${uiLabelMap.CommonFrom}"><date-time type="date"/></field>
         <field name="dummy99" title=" "><display/></field>
-        <field name="search" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submit" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
     </form>
 </forms>

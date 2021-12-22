@@ -233,7 +233,6 @@ under the License.
         <attribute name="thruDate" type="Timestamp" mode="IN" optional="false"/>
         <attribute name="orderId" type="String" mode="IN" optional="false"/>
     </service>
-
     <service name="convertUomCurrency" auth="true" engine="groovy"
         location="component://odwh/groovyScripts/FactServices.groovy" invoke="convertUomCurrency">
         <description>Import Sales Order Data.</description>
