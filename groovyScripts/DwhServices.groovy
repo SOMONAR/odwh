@@ -41,13 +41,14 @@ GenericValue dwhInitialised;
 
 def initialiseDwh() {
     // Updating BI system properties
-    futureIncrementProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.futureIncrement ').queryOne()
+    futureIncrementProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.futureIncrement').queryOne()
     if(futureIncrement != futureIncrementProp.systemPropertyValue) {
         futureIncrementProp.systemPropertyValue = futureIncrement
         futureIncrementProp.store()
     }
-    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.useTimeUomId ').queryOne()
-    if(useTimeUomId != useTimeUomIdProp) {
+    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.useTimeUomId').queryOne()
+    // useTimeUomIdProp= EntityUtilProperties.getPropertyValue('odwh', 'dwh.useTimeUomId', delegator)
+    if(useTimeUomId != useTimeUomIdProp.systemPropertyValue) {
         useTimeUomIdProp.systemPropertyValue = useTimeUomId
         useTimeUomIdProp.store()
     }
@@ -123,9 +124,9 @@ def updateDwh() {
     // Prepare for updating dimension and fact tables
 
     // prepare future date for date dimension
-    futureIncrementProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.futureIncrement ').queryOne()
+    futureIncrementProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.futureIncrement').queryOne()
     futureIncrement = futureIncrementProp.systemPropertyValue.toInteger()
-    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.useTimeUomId ').queryOne()
+    useTimeUomIdProp = from('SystemProperty').where('systemResourceId','odwh', 'systemPropertyId','dwh.useTimeUomId').queryOne()
     useTimeUomId = useTimeUomIdProp.systemPropertyValue
     switch (useTimeUomId){
         case "TF_mon":
