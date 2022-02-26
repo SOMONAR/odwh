@@ -16,4 +16,4 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 --%>
-<%response.sendRedirect("control/main");%>
+<%org.ofbiz.webapp.control.RequestHandler.sendControllerUriRedirectWithQueryString(request, response, "main");%>
